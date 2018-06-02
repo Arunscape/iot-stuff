@@ -6,9 +6,6 @@
 
 void setup() {
   Serial.begin(115200);
-  delay(100);
-
-  // We start by connecting to a WiFi network
 
   Serial.println();
   Serial.println();
@@ -22,18 +19,17 @@ void setup() {
     Serial.print(".");
   }
 
-  Serial.println("");
+  Serial.println();
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
 }
 
+const char *event = "button_pressed";
 void loop() {
-  // put your main code here, to run repeatedly:
 
   Serial.println("should be working");
 
-  const char *event = "button_pressed";
   IFTTT.trigger(event, apikey);
   delay(30000);
 }
